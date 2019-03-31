@@ -2,6 +2,9 @@ const express = require('express');
 const winston = require('winston');
 const app = express();
 
+// Fix integration test doesn't get json body
+app.use(express.json());
+
 require('./startup/logging')();
 require('./startup/config')();
 require('./startup/routes')(app);
@@ -14,6 +17,6 @@ process.on('unhandledRejection', (e) => {
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, function () {
-    winston.info(`Listening on port ${port}...`);
-});
+const server = app.listen(port, () => winston.info(`Listening on port ${port}...`));
+
+module.exports = server;
