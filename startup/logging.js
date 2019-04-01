@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { format, transports } = winston;
+const { format, transports, level } = winston;
 require('winston-mongodb');
 require('express-async-errors');
 
@@ -7,6 +7,7 @@ module.exports = function () {
     winston.add(new transports.File({
         filename: 'uncaughtExceptions.log',
         handleExceptions: true,
+        level: "error",
     }));
 
     winston.add(new transports.File({
