@@ -11,6 +11,10 @@ require('./startup/routes')(app);
 require('./startup/db')();
 require('./startup/validation')();
 
+if (process.env.NODE_ENV === 'production') {
+    require('./startup/prod')();
+}
+
 process.on('unhandledRejection', (e) => {
     throw e;
 });
