@@ -6,9 +6,9 @@ const app = express();
 app.use(express.json());
 
 require('./startup/logging')();
-require('./startup/config')();
 require('./startup/routes')(app);
 require('./startup/db')();
+require('./startup/config')();
 require('./startup/validation')();
 
 if (process.env.NODE_ENV === 'production') {
