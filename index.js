@@ -12,7 +12,7 @@ require('./startup/db')();
 require('./startup/validation')();
 
 if (process.env.NODE_ENV === 'production') {
-    require('./startup/prod')();
+    require('./startup/prod')(app);
 }
 
 process.on('unhandledRejection', (e) => {
