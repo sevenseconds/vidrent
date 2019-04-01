@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "vidly_jwtPrivateKey",
-    "db": "vidly_mongodb_uri"
+    "db": "vidly_mongodb"
 }
